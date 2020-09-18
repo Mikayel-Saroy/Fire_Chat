@@ -14,9 +14,22 @@ export default class HeaderHeaderComponent extends Component {
 
   @action
   async logout() {
+    console.log(this.local.myID);
+    firebase.firestore().collection("userData").onSnapshot((snapshot) => {
+      snapshot.docs.map(doc => {
+          if (doc.id === this.local.myID) {
+            console.log(doc.data().isActive);
+            doc.data().isActive = false;
+            console.log(doc.data().isActive);
+          }
+        }
+      )
+    })
     await this.session.invalidate();
-    // let user = await this.store.findRecord("userData", this.local.myEmail);
+    // const user = await this.store.findRecord("userData", this.local.myID);
     // console.log(user);
+    // user.isActive = false;
+    // user.save();
 
     //    const post = await this.store.findRecord('post', this.local.currentID);
     //       post.title = this.local.currentTitle;
