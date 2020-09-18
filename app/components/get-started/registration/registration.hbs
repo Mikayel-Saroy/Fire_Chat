@@ -1,0 +1,18 @@
+<div class="registration">
+  <b class="registration_password_option" {{on "click" this.changePasswordType}}>{{this.passwordTypeButtonName}}</b>
+  <div class="registration_head">
+    <h3>Registration</h3>
+  </div>
+  <div>
+    <Input @value={{this.username}} placeholder="Enter Your Username"/>
+  </div>
+  <div>
+    <Input @value={{this.password}} type="{{this.passwordType}}" placeholder="Enter Your Password"/>
+  </div>
+  <div>
+    <button {{on "click" this.submitData}}>Submit</button>
+  </div>
+</div>
+
+
+{{yield}}

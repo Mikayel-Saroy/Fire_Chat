@@ -1,0 +1,201 @@
+$black-color: rgb(21, 21, 21);
+$white-color: rgb(254, 254, 254);
+$red-color: #C62828;
+$red-color-light: #d32f2f;
+$blue-color: rgb(3, 171, 218);
+$blue-color-secondary: rgb(32, 160, 193);
+$primary-color: rgb(82, 80, 81);
+$secondary-color: rgb(200,200,200);
+//$tertiary_color: rgb(131, 128, 130);
+$tertiary_color: rgb(33, 33, 33);
+//$secondary-color: rgb(115, 112, 113);
+$header-height: 110px;
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: $secondary-color;
+
+  h1 {
+    color: $blue-color;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  input, textarea {
+    outline: none;
+    color: $black-color;
+    font-family: Courier, serif;
+    background-color: $secondary-color;
+    border-radius: 10px;
+    resize: none;
+  }
+}
+
+@mixin header_links {
+  text-decoration: none;
+  color: rgb(200, 200, 200);
+  font-size: 25px;
+  font-family: Arial, serif;
+  position: fixed;
+  margin-top: -85px;
+  left: 100%;
+
+  &:hover {
+    color: $blue-color;
+  }
+}
+
+@mixin button_sample {
+  background-color: $blue-color;
+  border-radius: 30px;
+  height: 30px;
+  width: 100px;
+  outline: none;
+  font-size: 16px;
+  color: $black-color;
+  &:hover {
+    background-color: $blue-color-secondary;
+  }
+}
+
+
+// Main Page
+.main_page {
+  .users {
+    position: absolute;
+    top: $header-height;
+    bottom: 0;
+    width: 25%;
+    background-color: $tertiary_color;
+
+    .user_line {
+      display: grid;
+      grid-template-columns: 90% 10%;
+      border-bottom: 1px solid $blue-color;
+
+      p {
+        font-size: 25px;
+        margin-left: 30px;
+        cursor: pointer;
+        color: $secondary-color;
+
+        &:hover {
+          color: $blue-color;
+        }
+      }
+
+      img {
+        height: 10px;
+        margin-top: 35px;
+      }
+    }
+  }
+
+  .chat {
+    position: absolute;
+    top: $header-height;
+    bottom: 0;
+    left: 25%;
+    width: 75%;
+    background-color: $secondary-color;
+  }
+}
+
+// Header
+.header {
+  height: $header-height - 1px;
+  border-bottom: 1px solid $blue-color;
+  background-color: $primary-color;
+
+  img {
+    height: $header-height - 20px;
+    margin: 8px 0 0 45px;
+  }
+
+  .header_content {
+
+    .log_out {
+      a {
+        margin-left: -125px;
+        @include header_links;
+      }
+    }
+
+    .log_in {
+      position: absolute;
+
+      a {
+        margin-left: -280px;
+        @include header_links;
+        float: left;
+
+
+        &.active {
+          color: $blue-color;
+        }
+      }
+
+      .registration_button {
+        margin-left: -180px;
+      }
+    }
+  }
+}
+
+// Registration
+.registration {
+  text-align: center;
+  margin: 60px auto auto auto;
+  width: 360px;
+  height: 270px;
+  background-color: $secondary-color;
+  border: 1px solid $primary-color;
+  border-radius: 10px;
+
+  .registration_head {
+    background-color: $primary-color;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    height: 60px;
+    margin: -30px 0 15px 0;
+
+    h3 {
+      font-size: 30px;
+      color: $blue-color;
+      padding-top: 15px;
+    }
+  }
+
+  input {
+    margin-top: 20px;
+    width: 300px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  button {
+    margin-top: 20px;
+    @include button_sample;
+  }
+
+  .registration_password_option {
+    position: absolute;
+    margin: 196px 0 0 100px;
+    font-family: Courier, serif;
+    font-size: 14px;
+    color: $primary-color;
+    cursor: pointer;
+  }
+}
+
+// Mix
+.test {
+  @include button_sample;
+  position: absolute;
+  margin-top: 10px;
+  left: 50%;
+}

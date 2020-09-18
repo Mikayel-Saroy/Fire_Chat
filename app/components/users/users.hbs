@@ -1,0 +1,16 @@
+<div {{did-insert this.getUsernames}}>
+  {{#each this.local.usersData as |data|}}
+    <div class="user_line">
+      <p>{{data.username}}</p>
+      <div>
+        {{#if data.isActive}}
+          <img src="assets/images/circle_active.ico" alt="Active"/>
+        {{else}}
+          <img src="assets/images/circle.ico" alt="Offline"/>
+        {{/if}}
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+{{yield}}

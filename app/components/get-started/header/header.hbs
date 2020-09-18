@@ -1,0 +1,24 @@
+<div class="header">
+  <div>
+    <img src="assets/images/make_it_logo.jpg" alt="Logo"/>
+    <button {{on "click" this.testFunction}} class="test">TEST</button>
+  </div>
+  <div class="header_content">
+    {{#if this.session.isAuthenticated}}
+      <div class="log_out">
+        <LinkTo @route="login">
+          <p {{on 'click' (fn this.logout)}}>Logout</p>
+        </LinkTo>
+      </div>
+    {{else}}
+      <div class="log_in">
+        <LinkTo @route="login">
+          <p>Login</p>
+        </LinkTo>
+        <LinkTo class="registration_button" @route="registration">
+          <p>Registration</p>
+        </LinkTo>
+      </div>
+    {{/if}}
+  </div>
+</div>

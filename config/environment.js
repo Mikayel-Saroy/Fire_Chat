@@ -2,6 +2,16 @@
 
 module.exports = function(environment) {
   let ENV = {
+    firebase: {
+      apiKey: "AIzaSyD1cwJ74UW8_LePmdZ_H6a390F6W_2sk7o",
+      authDomain: "fire-chat-90cc1.firebaseapp.com",
+      databaseURL: "https://fire-chat-90cc1.firebaseio.com",
+      projectId: "fire-chat-90cc1",
+      storageBucket: "fire-chat-90cc1.appspot.com",
+      messagingSenderId: "582292293635",
+      appId: "1:582292293635:web:5fa0577f84ebcd1b79e636",
+      measurementId: "G-MRV5VTTMXT",
+    },
     modulePrefix: 'fire-chat',
     environment,
     rootURL: '/',
