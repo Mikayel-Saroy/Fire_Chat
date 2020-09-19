@@ -9,11 +9,7 @@ export default class AuthRoute extends Route {
 
   beforeModel(transition) {
     if (!this.session.isAuthenticated) {
-      this.transitionTo("");
+      this.transitionTo("login");
     }
   }
-
-  // model() {
-  //   return this.store.query('testUser', {query: ref => ref});
-  // }
 }

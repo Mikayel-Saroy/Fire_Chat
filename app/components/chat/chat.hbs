@@ -1,0 +1,12 @@
+<div {{did-insert this.getChatData}}>
+  {{#each this.local.chatData as |data|}}
+    <div>
+      <span>{{data.username}}: </span>
+      <span>{{data.message}}</span>
+    </div>
+  {{/each}}
+  <Input @value={{this.currentMessage}} placeholder="Type your message."/>
+  <button {{on "click" this.addMessage}}>Submit</button>
+</div>
+
+{{yield}}

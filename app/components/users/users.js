@@ -12,14 +12,16 @@ export default class UsersUsersComponent extends Component {
     firebase.firestore().collection("userData").onSnapshot((snapshot) => {
       this.local.usersData = [];
       snapshot.docs.map(doc => {
-
-          console.log(doc.data().username);
-          if (doc.data().username.toLowerCase() === this.local.myUserName.toLowerCase()) {
-            this.local.myID = doc.id;
-          }
+          // console.log(doc.data().username);
+          // if (doc.data().username.toUpperCase() === this.local.myUserName.toUpperCase()) {
+          //   this.local.myID = doc.id;
+          // }
+          let usernameWithUpperCase = doc.data().username[0].toUpperCase().concat(doc.data().username.slice(1));
+          console.log(usernameWithUpperCase);
           this.local.usersData.push({
             id: doc.id,
-            ...doc.data(),
+            username: usernameWithUpperCase,
+            isActive: doc.data().isActive,
           });
         }
       )

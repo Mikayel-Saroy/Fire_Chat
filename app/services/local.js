@@ -10,4 +10,5 @@ export default class LocalService extends Service {
   @tracked isActive = false;
 
   @tracked usersData = [];
+  @tracked chatData = [];
 }

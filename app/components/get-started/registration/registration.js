@@ -47,9 +47,8 @@ export default class RegistrationRegistrationComponent extends Component {
     try {
       await auth.createUserWithEmailAndPassword(this.username + DEFAULT_MAIL_EXTENSION, this.password);
       this.local.myUserName = this.username;
-      this.local.isActive = true;
       this.createUserData();
-      this.router.transitionTo('');
+      this.router.transitionTo('auth');
     } catch (error) {
       console.log(error);
     }
