@@ -27,10 +27,13 @@ export default class ChatChatComponent extends Component {
       this.local.chatData = [];
       snapshot.docs.map(doc => {
           let usernameWithUpperCase = doc.data().username[0].toUpperCase().concat(doc.data().username.slice(1));
+          let isMyMessage;
+          isMyMessage = this.local.myUserName.toUpperCase() === doc.data().username.toUpperCase();
           this.local.chatData.push({
             id: doc.id,
             username: usernameWithUpperCase,
             message: doc.data().message,
+            isMyMessage: isMyMessage,
           });
         }
       )

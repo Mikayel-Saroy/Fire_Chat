@@ -102,6 +102,10 @@ body {
     left: 25%;
     width: 75%;
     background-color: $secondary-color;
+
+    .myMessage {
+      text-align: right;
+    }
   }
 }
 
