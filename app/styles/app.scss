@@ -5,7 +5,7 @@ $red-color-light: #d32f2f;
 $blue-color: rgb(3, 171, 218);
 $blue-color-secondary: rgb(32, 160, 193);
 $primary-color: rgb(82, 80, 81);
-$secondary-color: rgb(200,200,200);
+$secondary-color: rgb(200, 200, 200);
 //$tertiary_color: rgb(131, 128, 130);
 $tertiary_color: rgb(33, 33, 33);
 //$secondary-color: rgb(115, 112, 113);
@@ -23,15 +23,6 @@ body {
 
   a {
     text-decoration: none;
-  }
-
-  input, textarea {
-    outline: none;
-    color: $black-color;
-    font-family: Courier, serif;
-    background-color: $secondary-color;
-    border-radius: 10px;
-    resize: none;
   }
 }
 
@@ -96,15 +87,59 @@ body {
   }
 
   .chat {
+    font-size: 25px;
     position: absolute;
     top: $header-height;
     bottom: 0;
     left: 25%;
     width: 75%;
     background-color: $secondary-color;
+    border-left: 1px solid $blue-color;
+    margin-left: -1px;
 
     .myMessage {
       text-align: right;
+      padding: 5px 10px 0 0;
+    }
+
+    .allMessages {
+      padding: 5px 0 0 10px;
+    }
+
+    .input_box {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: $tertiary_color;
+      height: 80px;
+      font-size: 20px;
+
+      input {
+        height: 45px;
+        width: 50%;
+        margin: 16px 0 0 16px;
+        outline: none;
+        color: $black-color;
+        font-family: Courier, serif;
+        font-size: 21px;
+        background-color: $secondary-color;
+        border: 1px solid $blue-color;
+        border-radius: 10px;
+        resize: none;
+      }
+
+      button {
+        @include button_sample;
+        border-radius: 10px;
+        border: 1px solid $blue-color;
+        position: absolute;
+        left: 50%;
+        margin: 16px 0 0 30px;
+        height: 49px;
+        text-align: center;
+        color: $black-color;
+        font-size: 21px;
+      }
     }
   }
 }

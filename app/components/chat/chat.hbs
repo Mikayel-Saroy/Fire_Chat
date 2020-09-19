@@ -1,19 +1,21 @@
 <div {{did-insert this.getChatData}}>
   {{#each this.local.chatData as |data|}}
     {{#if data.isMyMessage}}
-    <div class="myMessage">
-      <span>{{data.username}}: </span>
-      <span>{{data.message}}</span>
-    </div>
+      <div class="myMessage">
+        <span>{{data.username}}: </span>
+        <span>{{data.message}}</span>
+      </div>
     {{else}}
-      <div>
+      <div class="allMessages">
         <span>{{data.username}}: </span>
         <span>{{data.message}}</span>
       </div>
     {{/if}}
   {{/each}}
-  <Input @value={{this.currentMessage}} placeholder="Type your message."/>
-  <button {{on "click" this.addMessage}}>Submit</button>
+  <div class="input_box">
+    <Input @value={{this.currentMessage}} placeholder="Type your message."/>
+    <button {{on "click" this.addMessage}}>Send</button>
+  </div>
 </div>
 
 {{yield}}
