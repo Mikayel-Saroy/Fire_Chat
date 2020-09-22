@@ -7,17 +7,21 @@ export default class UsersUsersComponent extends Component {
   @service firebaseApp;
   @service store;
   @service local;
+  @service session;
 
   @action getUsernames() {
     firebase.firestore().collection("userData").onSnapshot((snapshot) => {
       this.local.usersData = [];
+      // console.log(this.session.data.authenticated.user.email);
+      // console.log(this.session.data.authenticated);
+
       snapshot.docs.map(doc => {
           // console.log(doc.data().username);
-          // if (doc.data().username.toUpperCase() === this.local.myUserName.toUpperCase()) {
-          //   this.local.myID = doc.id;
-          // }
+          if (doc.data().email === this.session.data.authenticated.user.email) {
+            this.local.myID = doc.id;
+          }
           let usernameWithUpperCase = doc.data().username[0].toUpperCase().concat(doc.data().username.slice(1));
-          console.log(usernameWithUpperCase);
+          // console.log(usernameWithUpperCase);
           this.local.usersData.push({
             id: doc.id,
             username: usernameWithUpperCase,

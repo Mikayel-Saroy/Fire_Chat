@@ -53,12 +53,29 @@ body {
   }
 }
 
+@mixin message_sample {
+  max-width: 30%;
+
+  h6 {
+    margin-bottom: -18px;
+    color: $primary-color;
+    margin-left: 24px;
+  }
+
+  p {
+    border: 1px solid $blue-color-secondary;
+    border-radius: 20px;
+    padding: 7px 7px 7px 12px;
+  }
+}
+
 
 // Main Page
 .main_page {
   .users {
+    overflow: auto;
     position: absolute;
-    top: $header-height;
+    top: 110px;
     bottom: 0;
     width: 25%;
     background-color: $tertiary_color;
@@ -87,10 +104,11 @@ body {
   }
 
   .chat {
-    font-size: 25px;
+    overflow: auto;
+    font-size: 18px;
     position: absolute;
     top: $header-height;
-    bottom: 0;
+    bottom: 80px;
     left: 25%;
     width: 75%;
     background-color: $secondary-color;
@@ -98,12 +116,20 @@ body {
     margin-left: -1px;
 
     .myMessage {
+      @include message_sample;
+      padding-right: 12px;
+      margin-left: auto;
+      position: relative;
       text-align: right;
-      padding: 5px 10px 0 0;
     }
 
     .allMessages {
-      padding: 5px 0 0 10px;
+      @include message_sample;
+      padding-left: 12px;
+
+      p {
+        background-color: $blue-color-secondary;
+      }
     }
 
     .input_box {
@@ -113,10 +139,11 @@ body {
       background-color: $tertiary_color;
       height: 80px;
       font-size: 20px;
+      border-left: 1px solid $blue-color;
 
       input {
         height: 45px;
-        width: 50%;
+        width: calc(75% - 188px);
         margin: 16px 0 0 16px;
         outline: none;
         color: $black-color;
@@ -132,8 +159,6 @@ body {
         @include button_sample;
         border-radius: 10px;
         border: 1px solid $blue-color;
-        position: absolute;
-        left: 50%;
         margin: 16px 0 0 30px;
         height: 49px;
         text-align: center;
